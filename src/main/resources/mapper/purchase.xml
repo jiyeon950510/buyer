@@ -5,4 +5,5 @@
 
 <mapper namespace="shop.mtcoding.buyer.model.PurchaseRepository">
 
+
 </mapper>

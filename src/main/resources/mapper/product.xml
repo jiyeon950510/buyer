@@ -20,11 +20,16 @@
      delete from product_tb where id = #{id}
    </delete>
 
-   <update id="updateById">
+
+    <!-- <select id="findByQty" resultType="shop.mtcoding.buyer.model.Product">
+          select * from product_tb where qty = #{qtyresult}
+    </select> -->
+
+   <update id="updateByQty">
       update product_tb 
-         set name = #{name}
-         price = #{price}
-         qty = #{qty}
+         set qty = qty-#{qty_n}
          where id = #{id}
    </update>
+
+
 </mapper>

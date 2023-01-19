@@ -1,4 +1,4 @@
-  <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <!DOCTYPE html>
         <html lang="en">
@@ -12,19 +12,30 @@
 
         <body>
             <ul>
-                <li>
-                    <a href="/">홈</a>
-                </li>
-                <li>
-                    <a href="/loginForm">로그인</a>
-                </li>
-                <li>
-                    <a href="/joinForm">회원가입</a>
-                </li>
-                <li>
-                    <a href="/purchase">구매목록</a>
-                </li>
-                <li>
-                    <a href="/logout">로그아웃</a>
-                </li>
+                <c:choose>
+                   <c:when test="${principal == null}">
+                    <li>
+                        <a href="/">홈</a>
+                    </li>
+                    <li>
+                        <a href="/loginForm">로그인</a>
+                    </li>
+                    <li>
+                        <a href="/joinForm">회원가입</a>
+                    </li>
+                   </c:when>
+                
+                   <c:otherwise>
+                        <li>
+                            <a href="/">홈</a>
+                        </li>
+                        <li>
+                            <a href="/purchase">구매목록</a>
+                        </li>
+                        <li>
+                            <a href="/logout">로그아웃</a>
+                        </li>
+                   </c:otherwise>
+                </c:choose>
+
             </ul>
